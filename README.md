@@ -1,29 +1,19 @@
 # File Comparison API
----
 
 This is a REST API service built to help source code analysis engineers compare files. It supports `.md`, `.py`, `.ts`, and `.pdf` formats. The service identifies if two files are identical or provides detailed differences between them, which can be used for changelog generation.
 
----
-
 ## Features
----
 - Compares two files and identifies differences.
 - Supports `.md`, `.py`, `.ts`, and `.pdf` file formats.
 - Provides clear output on whether the files are identical or lists the specific differences.
 
----
-
 ## Prerequisites
----
 Before you begin, ensure you have the following installed:
 
 - **Node.js** (v14 or later)
 - **npm** (v6 or later)
 
----
-
 ## Setup Instructions
----
 Follow these steps to run the API locally:
 
 1. **Clone the repository:**
@@ -49,10 +39,7 @@ Follow these steps to run the API locally:
 
     Replace `xyz.js` with the actual name of the main file if it differs.
 
----
-
 ## API Usage
----
 ### Endpoint: `/compare`
 
 This is the main API endpoint used to compare two files.
@@ -71,8 +58,9 @@ You can use cURL or Postman to test the API. Here's an example using cURL:
 ```bash
 curl -X POST http://localhost:3000/compare -F "file1=@/path/to/file1" -F "file2=@/path/to/file2"
 
-Response:
----
+```
+
+### Response:
 
 - If files are identical:
 
@@ -100,8 +88,7 @@ Response:
 
 ---
 
-
-# Production Readiness Checklist
+## Production Readiness Checklist
 ---
 
 Here are some key considerations for deploying this API in a production environment:
@@ -119,7 +106,12 @@ Here are some key considerations for deploying this API in a production environm
 
 ---
 
+### Author
 
+- **Name:** Jahnavi Gupta
+- **Email:** [jahnavisgupta@gmail.com](mailto:jahnavisgupta@gmail.com)
+- **GitHub:** [https://github.com/JahnaviSGupta](https://github.com/JahnaviSGupta)
+- **LinkedIn:** [www.linkedin.com/in/jahnavigupta](https://www.linkedin.com/in/jahnavigupta)
 
 
 
