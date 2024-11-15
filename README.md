@@ -4,9 +4,9 @@ This API allows users to upload and compare two files to detect differences betw
 
 ## Features
 
-- **File Upload**: Users can upload two files (PDF or plain text) for comparison.
+- **File Upload**: Users can upload two files (Supports `.md`, `.py`, `.ts`, and `.pdf` file formats) for comparison.
 - **File Comparison**: The API compares the two uploaded files and identifies the differences.
-- **Swagger API Documentation**: Automatically generated Swagger UI for API documentation.
+
 
 ## Prerequisites
 
@@ -21,23 +21,35 @@ Follow these steps to set up and run the project locally:
 1. **Clone the repository (if applicable)**:
    ```bash
    git clone <https://github.com/JahnaviSGupta/sideko_takehome>
-   cd <repository_directory>
    ```
 
 2. **Install dependencies:** Run the following command to install all required packages:
    ```bash
    npm install
+   npm install swagger-jsdoc swagger-ui-express
    ```
 
-3. **Run the API:**: Start the API server locally:
-   ```bash
-   npm start
-   ```
+3. **Run app.js:** 
 
-4. **Access API Documentation:**: Once the server is running, you can access the Swagger API documentation at:
    ```bash
-  http://localhost:3000/api-docs
+   node app.js
    ```
+   Server will run on port 3000
+   API will run on http://localhost:3000/api-docs/#/default/post_api_files_compare
+
+   - CLick on *Try Now*
+   - Select the files
+
+4. **Test the API:** Run the following command to test the file comparison API:
+
+```bash
+curl -X POST http://localhost:3000/api/files/compare -F "file1=@File1.txt" -F "file2=@File2.txt"
+``` 
+This will compare File1.txt and File2.txt using the API.
+
+**Notes:**
+- Make sure that **File1.txt** and **File2.txt** are present in the same directory from which you are running the curl command, or provide the full path to the files.
+
 
 ## API Endpoints
 
@@ -116,128 +128,3 @@ The OpenAPI Specification for this API is embedded in the code using Swagger ann
 - **Name:** Jahnavi Gupta
 - **Email:** [jahnavisgupta@gmail.com](mailto:jahnavisgupta@gmail.com)
 - **GitHub:** [https://github.com/JahnaviSGupta](https://github.com/JahnaviSGupta)
-
-
-
-
-==================
-
-<!-- # File Comparison API
-
-This is a REST API service built to help source code analysis engineers compare files. It supports `.md`, `.py`, `.ts`, and `.pdf` formats. The service identifies if two files are identical or provides detailed differences between them, which can be used for changelog generation.
-
-## Features
-- Compares two files and identifies differences.
-- Supports `.md`, `.py`, `.ts`, and `.pdf` file formats.
-- Provides clear output on whether the files are identical or lists the specific differences.
-
-## Prerequisites
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (v14 or later)
-- **npm** (v6 or later)
-
-## Setup Instructions
-Follow these steps to run the API locally:
-
-1. **Clone the repository:**
-
-    ```bash
-    git clone <https://github.com/JahnaviSGupta/sideko_takehome>
-    cd <your-repo-directory>
-    ```
-
-2. **Install dependencies:**
-
-    ```bash
-    npm install
-    ```
-
-3. **Start the server:**
-
-    To run the server on `http://localhost:3000`:
-
-    ```bash
-    node xyz.js
-    ```
-
-## API Usage
-### Endpoint: `/compare`
-
-This is the main API endpoint used to compare two files.
-
-- **Method:** POST
-- **URL:** `http://localhost:3000/compare`
-- **Content-Type:** `multipart/form-data`
-
-### Request Parameters:
-- `file1`: First file to compare.
-- `file2`: Second file to compare.
-
-### Example Request:
-You can use cURL or Postman to test the API. Here's an example using cURL:
-
-```bash
-curl -X POST http://localhost:3000/compare -F "file1=@/path/to/file1" -F "file2=@/path/to/file2"
-
-```
-
-### Response:
-
-- If files are identical:
-
-    ```json
-    {
-      "message": "Files are identical"
-    }
-    ```
-
----
-
-- If files are different, a detailed diff will be provided:
-
-    ```json
-    {
-      "differences": [
-        {
-          "line": 10,
-          "old_value": "Original line in file1",
-          "new_value": "Modified line in file2"
-        }
-      ]
-    }
-    ```
-
----
-
-## Production Readiness Checklist
----
-
-Here are some key considerations for deploying this API in a production environment:
-
----
-
-- **File Size Limits:** Configure file size limits in `multer` to avoid memory overflow.
-- **Security:** Consider adding SSL for secure data transfer, and sanitize file uploads to prevent malicious content.
-- **Logging:** Implement logging with tools like `morgan` or `winston` for error tracking and audit trails.
-- **Testing:** Write unit tests for the API routes and file comparison logic.
-- **Error Handling:** Implement comprehensive error handling for file parsing, unsupported formats, etc.
-- **Scalability:** Use clustering or load balancing solutions (e.g., NGINX) to manage high traffic.
-- **Containerization:** Package the app using Docker for better portability and scalability.
-- **Monitoring:** Integrate monitoring tools like `Prometheus` or `New Relic` to keep track of application performance and uptime.
-
----
-
-### Author
-
-- **Name:** Jahnavi Gupta
-- **Email:** [jahnavisgupta@gmail.com](mailto:jahnavisgupta@gmail.com)
-- **GitHub:** [https://github.com/JahnaviSGupta](https://github.com/JahnaviSGupta)
-- **LinkedIn:** [www.linkedin.com/in/jahnavigupta](https://www.linkedin.com/in/jahnavigupta)
-
-
- -->
-
-
-
-
